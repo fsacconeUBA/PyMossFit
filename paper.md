@@ -26,3 +26,64 @@ The Python code is available in several Jupyter notebooks as typical examples fo
 [[Saccone2024a]](https://github.com/fsacconeUBA/Mossbauer/releases/tag/PyMossFit-V3)[[Saccone2024b]](http://dx.doi.org/10.13140/RG.2.2.20717.81127). (The comments and code section headings are in spanish)
 
 The code is structured in three cells. The first one includes the installation of *Lmfit*, the core of data fitting. Also, it imports some packages of *Scipy*, *Pandas*, *Matplotlib* and *Numpy*, among others. The next step, includes a Drive connection which asks permission to user.
+
+
+
+
+The second cell, reads the datafile (format should be inspected previously to define "delimiter", "columns" and "skiprows" parameters). The required inputs are date (in a YYYYMMDD format) and maximum velocity asociated to the extreme channels.
+In this cell, the spectrum folding is performed with a Discrete Fourier Transforming routine, the Numpy fft. The theory of this procedure corresponds to the Nyquist-Shannon Sampling Theorem that helps to determine a folding channel from the symmetry of Discrete Fourier spectra [[Kong2020]](https://pythonnumericalmethods.studentorg.berkeley.edu/notebooks/chapter24.02-Discrete-Fourier-Transform.html). Also data can be smoothed by means of a Savitsky-Golay package (I use savgol from Scipy). After folding, a new datafile is saved for fitting with the use of the next cell. 
+
+
+
+
+The set of parameters such as linewidth, isomer shifts, quadrupole splitting and hyperfine field are calculated after adjusting the amplitud (*a*), full width at half maximum (*b*), centroid (*m*), line shift (*d*) and line separation (*q*). Initial set of these parameters can be fitted or fixed by selecting the *"True*" or *"False"* options, respectively. A typical fit report of the output of this cell looks as following:
+
+
+
+
+Finally, the code loads fitted parameters, experimental and modeled subespectra in CSV formatted files. One final cell, allows to identify the phases from an own database. The ML algorithm employed to guess the present phases is based on a K-Nearest Neighbors.
+
+
+
+
+
+# Some Examples
+
+Mössbauer spectrum of a comercial $LiFePO_{4}$ active material for batteries. Residual phases were detected, such as $FePO_{4}$ and $Fe_{2}P$. This last phase, shows the presence of $^{57}Fe$ in two diferent oxidation states, *Fe(I)* and *Fe(II)*, respectively.
+
+![image.png](attachment:5648c966-6a32-4bd0-91ba-0a8b05a3a567.png)
+
+Mössbauer spectrum of the $LiFePO_{4}$ active material for batteries, after synthesis at lab scale. In this case, just $LiFePO_{4}$ was detected, besides the extraordinary sensitivity of the 
+characterization technique.
+
+![image.png](attachment:d26c793e-eaec-468b-ba77-04b8ffa4eb2f.png)
+
+CEMS spectrum of pyroxene in Mars soil (Opportunity Mission, Sept. 2004, T= 240-260K) [[Morris2006]](https://doi.org/10.1029/2006JE002791). The subespectra correspond to two different $^{57}Fe$ sites, M1 and M2, tipically found in pyroxene. [[Oshtrakh2007]](https://doi.org/10.1007/s10751-008-9646-4)
+
+![imagen.png](attachment:9a89fd2c-4cd5-43ef-9625-4d71a793bbcf.png)
+
+
+$^{57}Fe$ Mössbauer spectra of an Iguazú falls soil sample (Argentina-Brazil border)
+
+![image.png](attachment:960c373a-2e1f-4a76-b5fb-896837f89ee3.png)
+
+# References
+[Mossbauer_Wikipedia] *Mössbauer Spectroscopy*, http://en.m.wikipedia.org/wiki/Mössbauer_spectroscopy
+
+[Grandjean2021] Grandjean, F. and Long, G. J., *Best Practices and Protocols in Mössbauer Spectroscopy*,Chem. Mater. 2021, 33, 3878−3904 
+
+[Saccone2024a] Saccone, F. D., Release of *PyMossFit* in Github, https://github.com/fsacconeUBA/Mossbauer/releases/tag/PyMossFit-V3
+
+[Saccone2024b] Saccone, F.D., *PyMossFit*, ResearchGate, http://dx.doi.org/10.13140/RG.2.2.20717.81127
+
+[Kong2020] Kong, Q; Siauw, T. and Bayen, A., *Python Programming and Numerical Methods - A Guide for Engineers and Scientists*, https://pythonnumericalmethods.studentorg.berkeley.edu/notebooks/Index.html
+
+[Ferrari2015] Ferrari, S. et al, *Structural and magnetic properties of Zn doped magnetite nanoparticles obtained by wet chemical method*, IEEE Transactions on Magnetics, vol. 51, no. 6, pp. 1-6, June 2015, Art no. 2900206
+
+[Morris2006] Morris, R. V., et al. (2006), *Mösbauer mineralogy of rock, soil, and dust at Meridiani Planum, Mars: Opportunity’s
+journey across sulfate-rich outcrop, basaltic sand and dust, and hematite lag deposits*, J. Geophys. Res., 111, E12S15,
+
+[Oshtrakh2007] Oshtrakh, M. I., *Determination of quadrupole splitting for 57Fe in M1
+and M2 sites of both olivine and pyroxene in ordinary
+chondrites using Mössbauer spectroscopy with high
+velocity resolution*, Hyperfine Interact (2007) 177, pp. 65-71
