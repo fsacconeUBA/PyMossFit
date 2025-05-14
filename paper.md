@@ -50,12 +50,12 @@ Finally, the code loads fitted parameters, experimental and modeled subespectra 
 
 # Some Examples
 
-![Caption for Aged SSLFP figure.\label{fig:Mössbauer spectrum of an aged comercial $LiFePO_{4}$ active material for batteries. Residual phases were detected, such as $FePO_{4}$ and $Fe_{2}P$. This last phase, shows the presence of $^{57}Fe$ in two diferent oxidation states, *Fe(I)* and *Fe(II)*, respectively.}](Aged SSLFP.png)
+![Caption for Aged SSLFP figure.\label{fig 1:Mössbauer spectrum of an aged comercial $LiFePO_{4}$ active material for batteries. Residual phases were detected, such as $FePO_{4}$ and $Fe_{2}P$. This last phase, shows the presence of $^{57}Fe$ in two diferent oxidation states, *Fe(I)* and *Fe(II)*, respectively.}](Aged SSLFP.png)
 
 Mössbauer spectrum of the $LiFePO_{4}$ active material for batteries, after synthesis at lab scale. In this case, just $LiFePO_{4}$ was detected, besides the extraordinary sensitivity of the 
 characterization technique.
 
-![image.png](attachment:d26c793e-eaec-468b-ba77-04b8ffa4eb2f.png)
+![image.png](SSLFP M10.png)
 
 CEMS spectrum of pyroxene in Mars soil (Opportunity Mission, Sept. 2004, T= 240-260K) [[Morris2006]](https://doi.org/10.1029/2006JE002791). The subespectra correspond to two different $^{57}Fe$ sites, M1 and M2, tipically found in pyroxene. [[Oshtrakh2007]](https://doi.org/10.1007/s10751-008-9646-4)
 
