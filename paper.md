@@ -52,7 +52,7 @@ Finally, the code loads fitted parameters, experimental and modeled subespectra 
 
 Mössbauer spectrum of a comercial $LiFePO_{4}$ active material for batteries. Residual phases were detected, such as $FePO_{4}$ and $Fe_{2}P$. This last phase, shows the presence of $^{57}Fe$ in two diferent oxidation states, *Fe(I)* and *Fe(II)*, respectively.
 
-![image.png](attachment:5648c966-6a32-4bd0-91ba-0a8b05a3a567.png)
+![image.png](Aged SSLFP.png)
 
 Mössbauer spectrum of the $LiFePO_{4}$ active material for batteries, after synthesis at lab scale. In this case, just $LiFePO_{4}$ was detected, besides the extraordinary sensitivity of the 
 characterization technique.
