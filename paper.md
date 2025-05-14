@@ -50,15 +50,15 @@ Finally, the code loads fitted parameters, experimental and modeled subespectra 
 
 # Some Examples
 
-![Mössbauer spectrum of an aged comercial $LiFePO_{4}$ active material for batteries. Residual phases were detected, such as $FePO_{4}$ and $Fe_{2}P$. This last phase, shows the presence of $^{57}Fe$ in two diferent oxidation states, *Fe(I)* and *Fe(II)*, respectively](AgedSSLFP.png)
+![Mössbauer spectrum of an aged comercial $LiFePO_{4}$ active material for batteries. Residual phases were detected, such as $FePO_{4}$ and $Fe_{2}P$. This last phase, shows the presence of $^{57}Fe$ in two diferent oxidation states, *Fe(I)* and *Fe(II)*, respectively](doc/Aged_SSLFP.png)
 
 ![Mössbauer spectrum of the $LiFePO_{4}$ active material for batteries, after synthesis at lab scale. In this case, just $LiFePO_{4}$ was detected, besides the extraordinary sensitivity of the 
-characterization technique](SSLFP.png)
+characterization technique](doc/SSLFP.png)
 
-![CEMS spectrum of pyroxene in Mars soil (Opportunity Mission, Sept. 2004, T= 240-260K) [[Morris2006]](https://doi.org/10.1029/2006JE002791). The subespectra correspond to two different $^{57}Fe$ sites, M1 and M2, tipically found in pyroxene. [[Oshtrakh2007]](https://doi.org/10.1007/s10751-008-9646-4)](Opportunity.png)
+![CEMS spectrum of pyroxene in Mars soil (Opportunity Mission, Sept. 2004, T= 240-260K) [[Morris2006]](https://doi.org/10.1029/2006JE002791). The subespectra correspond to two different $^{57}Fe$ sites, M1 and M2, tipically found in pyroxene. [[Oshtrakh2007]](https://doi.org/10.1007/s10751-008-9646-4)](doc/Opportunity.png)
 
 
-![$^{57}Fe$ Mössbauer spectra of an Iguazú falls soil sample (Argentina-Brazil border)](Iguazú.png)
+![$^{57}Fe$ Mössbauer spectra of an Iguazú falls soil sample (Argentina-Brazil border)](doc/Iguazú.png)
 
 # References
 [Mossbauer_Wikipedia] *Mössbauer Spectroscopy*, http://en.m.wikipedia.org/wiki/Mössbauer_spectroscopy
