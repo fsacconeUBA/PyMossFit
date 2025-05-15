@@ -20,6 +20,7 @@ To accurately extract physical parameters from Mössbauer spectra, fitting proce
 
 $$\chi^2=\sum_{i=1}^{N}\frac{(y_i^{exp}-y_i^{model}(\vec{p}))^2}{\epsilon_i^2}$$
 
+beeing $\vec{p}$ a set of appropiated parameters for fitting, which minimizes the distance among the experimental data, $y_i^{exp}$ and the modeled data points $y_i^{model}$.
 In Python, this process can be implemented using libraries like *Lmfit*, *SciPy*, or *NumPy*, which provide robust tools for least-squares curve fitting. The general approach involves defining a model function that represents the expected shape of the Mössbauer spectrum, which could be a sum of multiple Lorentzian or Gaussian functions, depending on the number and type of spectral components. Lorentzian functions are preferred with crystalline samples, while PseudoVoigts (sum of Lorentzian and Gaussian functions) are appropriated for Fe sites in disordered materials. The least-squares fitting algorithm iteratively adjusts the parameters of the model until the sum of squared residuals between the experimental and calculated spectra is minimized.
 
 # Description of the Python code for Google Colab (PyMossFit)
