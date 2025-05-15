@@ -34,7 +34,7 @@ When raw data are plotted, they looks as shown below, due to the collection of a
 
 In this cell, the spectrum folding is performed with a Discrete Fourier Transforming routine, the *Numpy fft*. The theory of this procedure corresponds to the Nyquist-Shannon Sampling Theorem that helps to determine a folding channel from the symmetry of Discrete Fourier spectra [[Kong2020]](https://pythonnumericalmethods.studentorg.berkeley.edu/notebooks/chapter24.02-Discrete-Fourier-Transform.html). Also data can be smoothed by means of a Savitsky-Golay package (I use savgol from Scipy). After folding, a new datafile is saved for fitting with the use of the next cell. 
 
-The set of physical parameters such as linewidth ($\GAMMA$), isomer shifts (IS), quadrupole splitting (QS) and hyperfine field (Bhf) are calculated after adjusting the amplitud (*a*), full width at half maximum (*b*), centroid (*m*), line shift (*d*) and line separation (*q*). Initial set of these parameters can be fitted or fixed by selecting the *"True*" or *"False"* options, respectively. A typical fit report of the output of this cell looks as following:
+The set of physical parameters such as linewidth ($\Gamma$), isomer shifts (IS), quadrupole splitting (QS) and hyperfine field ($B_{HF}$) are calculated after adjusting the amplitud (*a*), full width at half maximum (*b*), centroid (*m*), line shift (*d*) and line separation (*q*). Initial set of these parameters can be fitted or fixed by selecting the *"True*" or *"False"* options, respectively. A typical fit report of the output of this cell looks as following:
 
 
 
