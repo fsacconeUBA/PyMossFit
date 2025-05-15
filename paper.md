@@ -27,17 +27,14 @@ The Python code is available in several Jupyter notebooks as typical examples fo
 
 The code is structured in three cells. The first one includes the installation in the Google Colab enviroment of *Lmfit*, the core of data fitting. Likewise, it imports some packages of *Scipy*, *Pandas*, *Matplotlib* and *Numpy*, among others. The next step, includes a Drive connection which asks permission to user.
 
-
-
-
-
 The second cell, reads the datafile (format should be inspected previously to define "delimiter", "columns" and "skiprows" parameters). The required inputs are date (in a YYYYMMDD format) and maximum velocity asociated to the extreme channels.
+When raw data are plotted, they looks as shown below, due to the collection of absorption resonances while the source moves back and forth
+
+[doc/Unfolded.png](https://github.com/fsacconeUBA/PyMossFit/blob/9fd5bd078652533d501ecc178307ac4ca773b829/Unfolded.png)
+
 In this cell, the spectrum folding is performed with a Discrete Fourier Transforming routine, the *Numpy fft*. The theory of this procedure corresponds to the Nyquist-Shannon Sampling Theorem that helps to determine a folding channel from the symmetry of Discrete Fourier spectra [[Kong2020]](https://pythonnumericalmethods.studentorg.berkeley.edu/notebooks/chapter24.02-Discrete-Fourier-Transform.html). Also data can be smoothed by means of a Savitsky-Golay package (I use savgol from Scipy). After folding, a new datafile is saved for fitting with the use of the next cell. 
 
-
-
-
-The set of parameters such as linewidth, isomer shifts, quadrupole splitting and hyperfine field are calculated after adjusting the amplitud (*a*), full width at half maximum (*b*), centroid (*m*), line shift (*d*) and line separation (*q*). Initial set of these parameters can be fitted or fixed by selecting the *"True*" or *"False"* options, respectively. A typical fit report of the output of this cell looks as following:
+The set of physical parameters such as linewidth ($\GAMMA$), isomer shifts (IS), quadrupole splitting (QS) and hyperfine field (Bhf) are calculated after adjusting the amplitud (*a*), full width at half maximum (*b*), centroid (*m*), line shift (*d*) and line separation (*q*). Initial set of these parameters can be fitted or fixed by selecting the *"True*" or *"False"* options, respectively. A typical fit report of the output of this cell looks as following:
 
 
 
