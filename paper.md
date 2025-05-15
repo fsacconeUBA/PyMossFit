@@ -29,7 +29,7 @@ The Python code is available in several Jupyter notebooks as typical examples fo
 The code is structured in three cells. The first one includes the installation in the Google Colab enviroment of *Lmfit*, the core of data fitting. Likewise, it imports some packages of *Scipy*, *Pandas*, *Matplotlib* and *Numpy*, among others. The next step, includes a Drive connection which asks permission to user.
 
 The second cell, reads the datafile (format should be inspected previously to define "delimiter", "columns" and "skiprows" parameters). The required inputs are date (in a YYYYMMDD format) and maximum velocity asociated to the extreme channels.
-When raw data are plotted, they looks as shown below, due to the collection of absorption resonances while the source moves back and forth
+When raw data are plotted, they looks as shown below, due to the collection of absorption resonances converted to signals in a single channel analyzer output, while the source moves back and forth
 
 [doc/Unfolded.png](https://github.com/fsacconeUBA/PyMossFit/blob/9fd5bd078652533d501ecc178307ac4ca773b829/Unfolded.png)
 
