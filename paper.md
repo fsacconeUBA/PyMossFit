@@ -56,10 +56,6 @@ characterization technique][(doc/SSLFP.png)](https://github.com/fsacconeUBA/PyMo
 
 [Grandjean2021] Grandjean, F. and Long, G. J., *Best Practices and Protocols in Mössbauer Spectroscopy*,Chem. Mater. 2021, 33, 3878−3904 
 
-[Saccone2024a] Saccone, F. D., Release of *PyMossFit* in Github, https://github.com/fsacconeUBA/Mossbauer/releases/tag/PyMossFit-V3
-
-[Saccone2024b] Saccone, F.D., *PyMossFit*, ResearchGate, http://dx.doi.org/10.13140/RG.2.2.20717.81127
-
 [Kong2020] Kong, Q; Siauw, T. and Bayen, A., *Python Programming and Numerical Methods - A Guide for Engineers and Scientists*, https://pythonnumericalmethods.studentorg.berkeley.edu/notebooks/Index.html
 
 [Ferrari2015] Ferrari, S. et al, *Structural and magnetic properties of Zn doped magnetite nanoparticles obtained by wet chemical method*, IEEE Transactions on Magnetics, vol. 51, no. 6, pp. 1-6, June 2015, Art no. 2900206
