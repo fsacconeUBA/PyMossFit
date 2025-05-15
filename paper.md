@@ -33,12 +33,13 @@ When raw data are plotted, they looks as shown below, due to the collection of a
 
 [doc/Unfolded.png](https://github.com/fsacconeUBA/PyMossFit/blob/9fd5bd078652533d501ecc178307ac4ca773b829/Unfolded.png)
 
-In this cell, the spectrum folding is performed with a Discrete Fourier Transforming routine, the *Numpy fft*. The theory of this procedure corresponds to the Nyquist-Shannon Sampling Theorem that helps to determine a folding channel from the symmetry of Discrete Fourier spectra [[Kong2020]](https://pythonnumericalmethods.studentorg.berkeley.edu/notebooks/chapter24.02-Discrete-Fourier-Transform.html). Also data can be smoothed by means of a Savitsky-Golay package (I use savgol from Scipy). After folding, a new datafile is saved for fitting with the use of the next cell. 
+In this cell, the spectrum folding is performed with a Discrete Fourier Transforming routine, the *Numpy fft*. The theory of this procedure corresponds to the Nyquist-Shannon Sampling Theorem that helps to determine a folding channel from the symmetry of Discrete Fourier spectra [[Kong2020]](https://pythonnumericalmethods.studentorg.berkeley.edu/notebooks/chapter24.02-Discrete-Fourier-Transform.html). Also data can be smoothed by means of a Savitsky-Golay package (I use savgol from *Scipy*). After folding, a new datafile is saved for fitting with the use of the next cell. 
 
-The set of physical parameters such as linewidth ($\Gamma$), isomer shifts (*IS*), quadrupole splitting (*QS*) and hyperfine magnetic field ($B_{HF}$) are calculated after adjusting the amplitud (*a*), full width at half maximum (*b*), centroid (*m*), line shift (*d*) and line separation (*q*). Initial set of these parameters can be fitted or fixed by selecting the *"True*" or *"False"* options, respectively. A typical fit report of the output of this cell looks as following:
+The set of physical parameters such as linewidth ($\Gamma$), isomer shifts (*IS*), quadrupole splitting (*QS*) and magnetic hyperfine field ($B_{HF}$) are calculated after adjusting the amplitud (*a*), full width at half maximum (*b*), centroid (*m*), line shift (*d*) and line separation (*q*). Initial set of these parameters can be fitted or fixed by selecting the *"True*" or *"False"* options, respectively. A typical fit report of the output of this cell looks as following:
+Finally, the code loads fitted parameters, experimental and modeled subespectra in CSV formatted files. 
 
-
-Finally, the code loads fitted parameters, experimental and modeled subespectra in CSV formatted files. One final cell, allows to identify the phases from an own database. The ML algorithm employed to guess the present phases is based on a K-Nearest Neighbors (sklearn.neighbors).
+# Match of fitted parameters with a local database
+A final cell allows to identify the phases from an own database. This procedure is based on minimization of Eulerian distances of the set of parameters with the bibliographic collected ones, that can be updated or extended by the user. The ML algorithm employed to guess the present phases is based on a K-Nearest Neighbors (*sklearn.neighbors*). The output is a recommendation with a ranking of best matching suggested phases. 
 
 
 # Some Examples
