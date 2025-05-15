@@ -24,15 +24,15 @@ In Python, this process can be implemented using libraries like *Lmfit*, *SciPy*
 
 # Description of the Python code for Google Colab (PyMossFit)
 The Python code is available in several Jupyter notebooks as typical examples found in practice. Some selected parts of it are described througout this page.
-[[Saccone2024a]](https://github.com/fsacconeUBA/Mossbauer/releases/tag/PyMossFit-V3)[[Saccone2024b]](http://dx.doi.org/10.13140/RG.2.2.20717.81127). (The comments and code section headings are in spanish)
 
-The code is structured in three cells. The first one includes the installation of *Lmfit*, the core of data fitting. Also, it imports some packages of *Scipy*, *Pandas*, *Matplotlib* and *Numpy*, among others. The next step, includes a Drive connection which asks permission to user.
+The code is structured in three cells. The first one includes the installation in the Google Colab enviroment of *Lmfit*, the core of data fitting. Likewise, it imports some packages of *Scipy*, *Pandas*, *Matplotlib* and *Numpy*, among others. The next step, includes a Drive connection which asks permission to user.
+
 
 
 
 
 The second cell, reads the datafile (format should be inspected previously to define "delimiter", "columns" and "skiprows" parameters). The required inputs are date (in a YYYYMMDD format) and maximum velocity asociated to the extreme channels.
-In this cell, the spectrum folding is performed with a Discrete Fourier Transforming routine, the Numpy fft. The theory of this procedure corresponds to the Nyquist-Shannon Sampling Theorem that helps to determine a folding channel from the symmetry of Discrete Fourier spectra [[Kong2020]](https://pythonnumericalmethods.studentorg.berkeley.edu/notebooks/chapter24.02-Discrete-Fourier-Transform.html). Also data can be smoothed by means of a Savitsky-Golay package (I use savgol from Scipy). After folding, a new datafile is saved for fitting with the use of the next cell. 
+In this cell, the spectrum folding is performed with a Discrete Fourier Transforming routine, the *Numpy fft*. The theory of this procedure corresponds to the Nyquist-Shannon Sampling Theorem that helps to determine a folding channel from the symmetry of Discrete Fourier spectra [[Kong2020]](https://pythonnumericalmethods.studentorg.berkeley.edu/notebooks/chapter24.02-Discrete-Fourier-Transform.html). Also data can be smoothed by means of a Savitsky-Golay package (I use savgol from Scipy). After folding, a new datafile is saved for fitting with the use of the next cell. 
 
 
 
@@ -42,7 +42,7 @@ The set of parameters such as linewidth, isomer shifts, quadrupole splitting and
 
 
 
-Finally, the code loads fitted parameters, experimental and modeled subespectra in CSV formatted files. One final cell, allows to identify the phases from an own database. The ML algorithm employed to guess the present phases is based on a K-Nearest Neighbors.
+Finally, the code loads fitted parameters, experimental and modeled subespectra in CSV formatted files. One final cell, allows to identify the phases from an own database. The ML algorithm employed to guess the present phases is based on a K-Nearest Neighbors ().
 
 
 
