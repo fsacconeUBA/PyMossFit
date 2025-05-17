@@ -1,4 +1,4 @@
-# PyMossFit: A Google Colab option for Mössbauer Spectra Fitting
+% PyMossFit: A Google Colab option for Mössbauer Spectra Fitting
 
 # Summary
 Mössbauer spectroscopy is a highly specialized technique that investigates the resonant absorption of gamma rays by atomic nuclei. The Mössbauer effect, observed primarily in isotopes like iron-57 ($^{57}Fe$), provides insight into hyperfine interactions, including isomer shifts, quadrupole splittings, and magnetic hyperfine fields. These parameters offer detailed information about the electronic, magnetic, and structural environment of the sample, making the technique invaluable in material science, chemistry, and condensed matter physics. The gamma ray of resonant absorption in $^{57}Fe$ nuclei is *14.4 keV* 
