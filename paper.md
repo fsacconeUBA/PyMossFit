@@ -49,8 +49,7 @@ A final cell allows to identify the phases from an own database. This procedure 
 ![Mössbauer spectrum of the $LiFePO_{4}$ active material for batteries, after synthesis at lab scale. In this case, just $LiFePO_{4}$ was detected, besides the extraordinary sensitivity of the 
 characterization technique][(doc/SSLFP.png)](https://github.com/fsacconeUBA/PyMossFit/blob/38356e77cf1ed69dde0ebb2fe9177b4c730e41eb/SSLFP.png)
 
-![CEMS spectrum of pyroxene in Mars soil (Opportunity Mission, Sept. 2004, T= 240-260K) [[Morris2006]](https://doi.org/10.1029/2006JE002791). The subespectra correspond to two different $^{57}Fe$ sites, M1 and M2, tipically found in pyroxene. [[Oshtrakh2007]](https://doi.org/10.1007/s10751-008-9646-4)][(doc/Opportunity.png)](https://github.com/fsacconeUBA/PyMossFit/blob/1c0b76d1468396190c96b9e789d36b9a0c2ed2c4/Opportunity.png)
-
+![CEMS spectrum of pyroxene in Mars soil (Opportunity Mission, Sept. 2004, T= 240-260K) [[Morris2006]](https://doi.org/10.1029/2006JE002791). The subespectra correspond to two different $^{57}Fe$ sites, M1 and M2, tipically found in pyroxene. [[Oshtrakh2007]](https://doi.org/10.1007/s10751-008-9646-4)[(Opportunity.png)](https://github.com/fsacconeUBA/PyMossFit/blob/8cc458dafdb88fef5e335dd1e4acfc3646d28a80/Opportunity.png)
 ![$^{57}Fe$ Mössbauer spectra of an Iguazú falls soil sample (Argentina-Brazil border)][(doc/Iguazú.png)](https://github.com/fsacconeUBA/PyMossFit/blob/21102e0922ab90e0ab3a767d5a9ceabcc2af44c3/Iguaz%C3%BA.png)
 
 # References
