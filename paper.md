@@ -50,6 +50,7 @@ A final cell allows to identify the phases from an own database. This procedure 
 characterization technique][(doc/SSLFP.png)](https://github.com/fsacconeUBA/PyMossFit/blob/38356e77cf1ed69dde0ebb2fe9177b4c730e41eb/SSLFP.png)
 
 ![CEMS spectrum of pyroxene in Mars soil (Opportunity Mission, Sept. 2004, T= 240-260K) [[Morris2006]](https://doi.org/10.1029/2006JE002791). The subespectra correspond to two different $^{57}Fe$ sites, M1 and M2, tipically found in pyroxene. [[Oshtrakh2007]](https://doi.org/10.1007/s10751-008-9646-4)[(Opportunity.png)](https://github.com/fsacconeUBA/PyMossFit/blob/8cc458dafdb88fef5e335dd1e4acfc3646d28a80/Opportunity.png)
-![$^{57}Fe$ Mössbauer spectra of an Iguazú falls soil sample (Argentina-Brazil border)][(doc/Iguazú.png)](https://github.com/fsacconeUBA/PyMossFit/blob/21102e0922ab90e0ab3a767d5a9ceabcc2af44c3/Iguaz%C3%BA.png)
+
+![$^{57}Fe$ Mössbauer spectra of an Iguazú falls soil sample (Argentina-Brazil border)][(doc/Iguazú.png)](https://github.com/fsacconeUBA/PyMossFit/blob/62c7485e3495b3302ba1c1cf5a33324fe801dc83/Iguaz%C3%BA.png)
 
 # References
