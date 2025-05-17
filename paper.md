@@ -1,6 +1,6 @@
-% PyMossFit: A Google Colab option for Mössbauer Spectra Fitting
+# PyMossFit: A Google Colab option for Mössbauer Spectra Fitting
 
-# Summary
+## Summary
 Mössbauer spectroscopy is a highly specialized technique that investigates the resonant absorption of gamma rays by atomic nuclei. The Mössbauer effect, observed primarily in isotopes like iron-57 ($^{57}Fe$), provides insight into hyperfine interactions, including isomer shifts, quadrupole splittings, and magnetic hyperfine fields. These parameters offer detailed information about the electronic, magnetic, and structural environment of the sample, making the technique invaluable in material science, chemistry, and condensed matter physics. The gamma ray of resonant absorption in $^{57}Fe$ nuclei is *14.4 keV* 
 
 In a typical Mössbauer experiment, a radioactive source emits gamma rays, which are absorbed by the nuclei in the sample. Resonant absorption occurs, in a small fraction, when gamma rays hit the probe with recoil less. The detector measures the intensity of the transmitted radiation as a function of the velocity of the gamma-ray source. This results in a Mössbauer spectrum, typically characterized by sharp peaks or dips at resonance frequencies, corresponding to different hyperfine interactions within the sample. The most common experimental setup corresponds to *Transmission Geometry* (in this case, the observed lines come from a reduction of *14.4 keV* gamma counting in detector, as compared to the background signal). Other option is the *Conversion Electron Mössbauer Spectroscopy (CEMS)* that correspond to detection of back scattered electrons after gamma absorption. 
@@ -10,12 +10,12 @@ Usually, scientist working with Mössbauer Spectroscopy manage their data and fi
 
 In this sense, Google Colab is a useful tool for a colaborative team job in data analysis with the aditional advantage of no aditional packages locally installed, also compatible with the fact that the user can run their codes from multiple devices.
 
-# Mössbauer Spectra and Curve Shapes
+## Mössbauer Spectra and Curve Shapes
 The shape of a Mössbauer spectrum varies depending on the nature of the hyperfine interactions in the sample. For example, a simple paramagnetic material might produce a single absorption peak (Lorentzian, Gaussian  or PseudoVoigt) due to the isomer shift. Materials with quadrupole splitting generate a doublet (two peaks), while materials experiencing magnetic hyperfine interactions often exhibit more complex sextet patterns. These spectral features often overlap, making it challenging to isolate and quantify each component manually.
 
 Curve fitting plays a crucial role in Mössbauer spectral analysis, as it allows for the decomposition of these complex spectra into individual contributions, each associated with specific hyperfine parameters. The challenge lies in accurately reproducing the spectral shapes using mathematical models and adjusting the parameters until a satisfactory fit is achieved.
 
-## Curve Fitting and Least Squares Method
+### Curve Fitting and Least Squares Method
 To accurately extract physical parameters from Mössbauer spectra, fitting procedures are applied to the experimental data. One of the most common approaches is the *least-squares method*, which minimizes the difference between the experimental data points and the theoretical model curve. The objective is to adjust the parameters of the theoretical model (such as isomer shift, quadrupole splitting, and line broadening) so that the calculated spectrum fits the experimental data as closely as possible. Then, it is required a minimization of the $\chi^2$, defined as:
 
 $$\chi^2=\sum_{i=1}^{N}\frac{(y_i^{exp}-y_i^{model}(\vec{p}))^2}{\epsilon_i^2}$$
@@ -23,7 +23,7 @@ $$\chi^2=\sum_{i=1}^{N}\frac{(y_i^{exp}-y_i^{model}(\vec{p}))^2}{\epsilon_i^2}$$
 beeing $\vec{p}$ a set of appropiated parameters for fitting, which minimizes the distance among the experimental data, $y_i^{exp}$ and the modeled data points $y_i^{model}$.
 In Python, this process can be implemented using libraries like *Lmfit*, *SciPy*, or *NumPy*, which provide robust tools for least-squares curve fitting. The general approach involves defining a model function that represents the expected shape of the Mössbauer spectrum, which could be a sum of multiple Lorentzian or Gaussian functions, depending on the number and type of spectral components. Lorentzian functions are preferred with crystalline samples, while PseudoVoigts (sum of Lorentzian and Gaussian functions) are appropriated for Fe sites in disordered materials. The least-squares fitting algorithm iteratively adjusts the parameters of the model until the sum of squared residuals between the experimental and calculated spectra is minimized.
 
-# Description of the Python code for Google Colab (PyMossFit)
+## Description of the Python code for Google Colab (PyMossFit)
 The Python code is available in several Jupyter notebooks as typical examples found in practice. Some selected parts of it are described througout this page.
 
 The code is structured in three cells. The first one includes the installation in the Google Colab enviroment of *Lmfit*, the core of data fitting. Likewise, it imports some packages of *Scipy*, *Pandas*, *Matplotlib* and *Numpy*, among others. The next step, includes a Drive connection which asks permission to user.
@@ -38,11 +38,11 @@ In this cell, the spectrum folding is performed with a Discrete Fourier Transfor
 The set of physical parameters such as linewidth ($\Gamma$), isomer shifts (*IS*), quadrupole splitting (*QS*) and magnetic hyperfine field ($B_{HF}$) are calculated after adjusting the amplitud (*a*), full width at half maximum (*b*), centroid (*m*), line shift (*d*) and line separation (*q*). Initial set of these parameters can be fitted or fixed by selecting the *"True*" or *"False"* options, respectively. A typical fit report of the output of this cell looks as following:
 Finally, the code loads fitted parameters, experimental and modeled subespectra in CSV formatted files. 
 
-## Match of fitted parameters with a local database
+### Match of fitted parameters with a local database
 A final cell allows to identify the phases from an own database. This procedure is based on minimization of Eulerian distances of the set of parameters with the bibliographic collected ones, that can be updated or extended by the user. The ML algorithm employed to guess the present phases is based on a K-Nearest Neighbors (*sklearn.neighbors*). The output is a recommendation with a ranking of best matching suggested phases. 
 
 
-# Some Examples
+## Some Examples
 
 ![Mössbauer spectrum of an aged comercial $LiFePO_{4}$ active material for batteries. Residual phases were detected, such as $FePO_{4}$ and $Fe_{2}P$. This last phase, shows the presence of $^{57}Fe$ in two diferent oxidation states, *Fe(I)* and *Fe(II)*, respectively][(doc/Aged_SSLFP.png)](https://github.com/fsacconeUBA/PyMossFit/blob/3094014496783bff2e8d0e5a986c48feaedfbbb0/Aged_SSLFP.png)
 
