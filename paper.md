@@ -15,7 +15,7 @@ The shape of a Mössbauer spectrum varies depending on the nature of the hyperfi
 
 Curve fitting plays a crucial role in Mössbauer spectral analysis, as it allows for the decomposition of these complex spectra into individual contributions, each associated with specific hyperfine parameters. The challenge lies in accurately reproducing the spectral shapes using mathematical models and adjusting the parameters until a satisfactory fit is achieved.
 
-# Curve Fitting and Least Squares Method
+## Curve Fitting and Least Squares Method
 To accurately extract physical parameters from Mössbauer spectra, fitting procedures are applied to the experimental data. One of the most common approaches is the *least-squares method*, which minimizes the difference between the experimental data points and the theoretical model curve. The objective is to adjust the parameters of the theoretical model (such as isomer shift, quadrupole splitting, and line broadening) so that the calculated spectrum fits the experimental data as closely as possible. Then, it is required a minimization of the $\chi^2$, defined as:
 
 $$\chi^2=\sum_{i=1}^{N}\frac{(y_i^{exp}-y_i^{model}(\vec{p}))^2}{\epsilon_i^2}$$
@@ -38,7 +38,7 @@ In this cell, the spectrum folding is performed with a Discrete Fourier Transfor
 The set of physical parameters such as linewidth ($\Gamma$), isomer shifts (*IS*), quadrupole splitting (*QS*) and magnetic hyperfine field ($B_{HF}$) are calculated after adjusting the amplitud (*a*), full width at half maximum (*b*), centroid (*m*), line shift (*d*) and line separation (*q*). Initial set of these parameters can be fitted or fixed by selecting the *"True*" or *"False"* options, respectively. A typical fit report of the output of this cell looks as following:
 Finally, the code loads fitted parameters, experimental and modeled subespectra in CSV formatted files. 
 
-# Match of fitted parameters with a local database
+## Match of fitted parameters with a local database
 A final cell allows to identify the phases from an own database. This procedure is based on minimization of Eulerian distances of the set of parameters with the bibliographic collected ones, that can be updated or extended by the user. The ML algorithm employed to guess the present phases is based on a K-Nearest Neighbors (*sklearn.neighbors*). The output is a recommendation with a ranking of best matching suggested phases. 
 
 
