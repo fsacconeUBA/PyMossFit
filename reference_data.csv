@@ -1,0 +1,65 @@
+Compound Name,Chemical Formula,IS (mm/s),Quad Splitting (mm/s),Bhf (T),Comments
+Alpha-Iron (metallic),Fe,0,0,33,Patrón de referencia
+Hematite,α-Fe₂O₃,0.37-0.45,0.2,51.8-52.3,Antiferromagnético a RT
+Magnetite,Fe₃O₄,0.26,0,49,Sitio tetraédrico (Fe³+)
+Magnetite,Fe₃O₄,0.67,0,46,Sitio octaédrico (Fe².⁵+)
+Wüstite,FeO,0.90-1.00,0.40-0.60,0,Fe²+ en sitio octaédrico
+Goethite,α-FeOOH,0.36-0.40,0.60-0.80,38.0-40.0,Mineral común en suelos
+Pyrite,FeS₂,0.30-0.35,0.60-0.65,0,Fe²+ en ambiente cúbico
+Troilite,FeS,0.70-0.80,0.20-0.30,0,Estructura hexagonal
+Siderite,FeCO₃,1.10-1.30,1.80-2.00,0,Fe²+ de alto espín
+Ferroceno,Fe(C₅H₅)₂,0.50-0.55,2.40-2.50,0,Fe²+ organometálico
+Prussian Blue,Fe₄[Fe(CN)₆]₃,0.00-0.10,0.00-0.20,0,Fe³+ de bajo espín (CN)
+Ferrihydrite,Fe₅HO₈·4H₂O,0.35-0.45,0.50-0.70,0,Mineral amorfo
+Akaganeite,β-FeOOH,0.35-0.40,0.60-0.80,35.0-38.0,Estructura de túnel
+Lepidocrocite,γ-FeOOH,0.35-0.40,0.60-0.80,38.0-40.0,Capas dobles de OH
+FeCl₂,FeCl₂,1.00-1.10,0.80-1.00,0,Fe²+ octaédrico
+FeCl₃,FeCl₃,0.40-0.50,0.30-0.50,0,Fe³+ octaédrico
+FeOCl,FeOCl,0.45-0.55,0.70-0.90,0,Estructura en capas
+FePO₄,FePO₄,0.35-0.45,0.50-0.70,0,Fe³+ fosfato
+(Fe; Mn)PO₄,(Fe; Mn)PO₄,0.35-0.45,0.50-0.90,0,Fe³+ manganeso fosfato 
+Fe₂(SO₄)₃,Fe₂(SO₄)₃,0.30-0.40,0.40-0.60,0,Sulfato férrico
+FeCO (cementita),Fe₃C,0.20-0.30,0.00-0.10,20.0-21.0,Aleación en aceros
+Kamacite (Fe-Ni),Fe-Ni (5-10% Ni),0.00-0.05,0,28.0-32.0,Meteoritos
+Taenite (Fe-Ni),Fe-Ni (20-50% Ni),0.00-0.10,0,25.0-28.0,Meteoritos
+Fe₂P,Fe₂P,0.20-0.30,0.10-0.20,15.0-18.0,Fosfuro de hierro
+Fe₃Al,Fe₃Al,0.10-0.20,0.00-0.10,15.0-17.0,Aleación ordenada
+Fe-Nitrosilos (Hb-NO),Fe(C₅H₅N)(NO),0.15-0.25,0.80-1.20,0,Complejos bioquímicos
+Hemoglobina (deoxy),Fe(C₃4H₃2N4O4),0.90-1.00,2.10-2.40,0,Fe²+ alto espín
+Hemoglobina (oxy),Fe(C₃4H₃2N4O4),0.20-0.30,0.20-0.40,0,Fe²+ bajo espín
+Ferritina,FeOOH core,0.35-0.45,0.60-0.80,0,Almacenamiento de hierro
+Fe-Zeolites,Fe-ZSM-5,0.30-0.50,0.80-1.50,0,Sitios ácidos en catalizadores
+Fe-MOFs,Fe₃O(BDC)₃,0.35-0.45,0.50-0.70,0,Estructuras metal-orgánicas
+FeTiO₃,FeTiO₃,1.00-1.10,0.70-0.90,0,Ilmenita (Fe²+)
+Fe₂SiO₄,Fe₂SiO₄,1.10-1.20,2.80-3.00,0,Fayalita (olivino)
+Fe₃(PO₄)₂·8H₂O,Fe₃(PO₄)₂·8H₂O,1.20-1.30,2.50-3.00,0,Vivianita (Fe²+)
+FeOCl intercalado,FeOCl-GIC,0.40-0.50,0.90-1.10,0,Compuestos intercalados
+FeSn₂,FeSn₂,0.10-0.20,0.00-0.10,8.0-10.0,Estaño férrico
+FeCr₂O₄,FeCr₂O₄,0.80-0.90,1.20-1.50,0,Cromita (Fe²+)
+FeNbO₄,FeNbO₄,0.40-0.50,0.50-0.70,0,Óxido mixto
+FeWO₄,FeWO₄,0.90-1.00,1.50-1.80,0,Wolframita (Fe²+)
+Fe₂MoO₄,Fe₂MoO₄,0.70-0.80,1.00-1.20,0,Molibdato de hierro
+FeVO₄,FeVO₄,0.40-0.50,0.60-0.80,0,Vanadato férrico
+Fe₄[Fe(CN)₆]₃·xH₂O,Fe₄[Fe(CN)₆]₃·xH₂O,0.00-0.10,0.00-0.20,0,Prussian Blue análogos
+Fe(phen)₂(NCS)₂,[Fe(phen)₂(NCS)₂],0.30-0.40,0.20-0.40,0,Spin crossover (HS/LS)
+Fe(phen)₂(NCS)₂,[Fe(phen)₂(NCS)₂],0.00-0.10,0.00-0.10,0,Spin crossover (LS)
+Fe(CO)₅,Fe(CO)₅,0.20-0.30,0.00-0.10,0,Carbonilo de hierro
+Fe₃[Fe(CN)₆]₂,Fe₃[Fe(CN)₆]₂,0.10-0.20,0.10-0.30,0,Berlín verde
+FeO nanoparticles,FeO,0.85-0.95,0.30-0.50,0,Nanopartículas (Fe²+)
+Fe₂O₃ nanoparticles,γ-Fe₂O₃,0.35-0.45,0.00-0.20,50.0-52.0,Maghemita (nanopartículas)
+Fe₃O₄ nanoparticles,Fe₃O₄,0.25-0.30,0,48.0-49.0,Nanopartículas magnéticas
+Fe₃O₄ nanoparticles,Fe₃O₄,0.65-0.75,0,44.0-46.0,Nanopartículas magnéticas
+Fe-based glasses,Fe-B-Si,0.00-0.10,0.00-0.10,25.0-30.0,Vidrios metálicos
+FeSi,FeSi,0.05-0.15,0.00-0.05,12.0-15.0,Siliciuro de hierro
+FeN (nitruro),Fe₄N,0.10-0.20,0.00-0.10,21.0-23.0,Nitruro férrico
+FeCr (acero inox),Fe-Cr (18% Cr),0.00-0.05,0,20.0-22.0,Aleación inoxidable
+LiFePO₄ (Olivine),LiFePO₄,1.10-1.20,2.80-3.00,0,Cátodo en baterías Li-ion (Fe²+)
+NaFePO₄ (Maricite),NaFePO₄,1.00-1.10,2.50-2.80,0,Análogo de sodio (Fe²+)
+KFePO₄,KFePO₄,0.95-1.05,2.20-2.60,0,Análogo de potasio (Fe²+)
+Nitroprusiato de sodio,Na₂[Fe(CN)₅NO],0.00-0.20,1.60-1.80,0,Fe²+ bajo espín (CN⁻/NO)
+Condritas-Olivina,(Mg;Fe)₂SiO₄,1.16-1.23,2.95-3.05,0,M1 site
+Condritas-Olivina,(Mg;Fe)₂SiO₄,1.10-1.18,2.8-2.95,0,M2 site
+Condritas-Piroxeno,(Mg;Fe)SiO₃,1.10-1.30,2.25-2.75,0,M1 site
+Condritas-Piroxeno,(Mg;Fe)SiO₃,1.14-1.21,2.03-2.10,0,M2 site
+Pirofosfato de Fe(II),Fe₂P₂O₇,1.1-1.5,2.5-3.5,0,Pirofosfato de Fe(II)
+Pirofosfato de Fe(III),Fe₄(P₂O₇)₃,0.2-0.6,0.5-1.5,0,Pirofosfato de Fe(III)
