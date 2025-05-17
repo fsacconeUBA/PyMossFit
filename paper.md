@@ -54,18 +54,3 @@ characterization technique][(doc/SSLFP.png)](https://github.com/fsacconeUBA/PyMo
 ![$^{57}Fe$ Mössbauer spectra of an Iguazú falls soil sample (Argentina-Brazil border)][(doc/Iguazú.png)](https://github.com/fsacconeUBA/PyMossFit/blob/21102e0922ab90e0ab3a767d5a9ceabcc2af44c3/Iguaz%C3%BA.png)
 
 # References
-[Mossbauer_Wikipedia] *Mössbauer Spectroscopy*, http://en.m.wikipedia.org/wiki/Mössbauer_spectroscopy
-
-[Grandjean2021] Grandjean, F. and Long, G. J., *Best Practices and Protocols in Mössbauer Spectroscopy*,Chem. Mater. 2021, 33, 3878−3904 
-
-[Kong2020] Kong, Q; Siauw, T. and Bayen, A., *Python Programming and Numerical Methods - A Guide for Engineers and Scientists*, https://pythonnumericalmethods.studentorg.berkeley.edu/notebooks/Index.html
-
-[Ferrari2015] Ferrari, S. et al, *Structural and magnetic properties of Zn doped magnetite nanoparticles obtained by wet chemical method*, IEEE Transactions on Magnetics, vol. 51, no. 6, pp. 1-6, June 2015, Art no. 2900206
-
-[Morris2006] Morris, R. V., et al. (2006), *Mösbauer mineralogy of rock, soil, and dust at Meridiani Planum, Mars: Opportunity’s
-journey across sulfate-rich outcrop, basaltic sand and dust, and hematite lag deposits*, J. Geophys. Res., 111, E12S15,
-
-[Oshtrakh2007] Oshtrakh, M. I., *Determination of quadrupole splitting for 57Fe in M1
-and M2 sites of both olivine and pyroxene in ordinary
-chondrites using Mössbauer spectroscopy with high
-velocity resolution*, Hyperfine Interact (2007) 177, pp. 65-71
