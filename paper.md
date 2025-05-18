@@ -25,6 +25,7 @@ Mössbauer spectroscopy is a highly specialized technique that investigates the 
 
 In a typical Mössbauer experiment, a radioactive source emits gamma rays, which are absorbed by the nuclei in the sample. Resonant absorption occurs, in a small fraction, when gamma rays hit the probe with recoil less. The detector measures the intensity of the transmitted radiation as a function of the velocity of the gamma-ray source. This results in a Mössbauer spectrum, typically characterized by sharp peaks or dips at resonance frequencies, corresponding to different hyperfine interactions within the sample. The most common experimental setup corresponds to *Transmission Geometry* (in this case, the observed lines come from a reduction of *14.4 keV* gamma counting in detector, as compared to the background signal). Other option is the *Conversion Electron Mössbauer Spectroscopy (CEMS)* that correspond to detection of back scattered electrons after gamma absorption. 
 
+# Statement of need
 Recently, in a review written by Grandjean et al [[Grandjean2021]](https://doi.org/10.1021/acs.chemmater.1c00326),the authors made a series of suggestion about how good measurements should be taken, which could be a good practice for Mössbauer data treatment and its corresponding fitting presentation.
 Usually, scientist working with Mössbauer Spectroscopy manage their data and fit them with not open source softwares that run in Windows OS with low update services. The need of an open source option with less OS or package dependency has motivated this work.
 
