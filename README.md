@@ -1,5 +1,3 @@
-![image](descarga (10).png)
-
 # PyMossFit
 
 ## A Jupyter Notebook for fitting of Mössbauer spectra
