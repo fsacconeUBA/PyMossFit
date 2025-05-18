@@ -1,5 +1,3 @@
-[(SSLFP.png)]
-
 # PyMossFit
 
 ## A Jupyter Notebook for fitting of Mössbauer spectra
