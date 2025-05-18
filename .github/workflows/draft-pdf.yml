@@ -2,7 +2,14 @@ name: Draft PDF
 on:
   push:
     branches:
+      - "main"
+    paths:
       - 'paper/**'
+  pull_request:
+    branches:
+      - "main" 
+    paths:
+      - ".github/workflows/test.yaml"
       - '.github/workflows/draft-pdf.yml'
             
 permissions:
