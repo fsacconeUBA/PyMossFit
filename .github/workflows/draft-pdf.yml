@@ -1,6 +1,13 @@
 name: Draft PDF
-on: [push]
-
+on:
+    push:
+      paths:
+        - paper/**
+        - .github/workflows/draft-pdf.yml
+        
+permissions:
+  contents: write  # This allows the workflow to push changes
+  
 jobs:
   paper:
     runs-on: ubuntu-latest
