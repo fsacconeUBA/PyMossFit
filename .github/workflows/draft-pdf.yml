@@ -2,15 +2,14 @@ name: Draft PDF
 on:
   push:
     branches:
-      - "main"
+      - main
     paths:
-      - 'paper/**'
+      - paper/**
   pull_request:
     branches:
-      - "main" 
+      - main
     paths:
-      - ".github/workflows/test.yaml"
-      - '.github/workflows/draft-pdf.yml'
+      - .github/workflows/draft-pdf.yml
             
 permissions:
   contents: write  # This allows the workflow to push changes
@@ -27,7 +26,7 @@ jobs:
         with:
           journal: joss
           # This should be the path to the paper within your repo.
-          paper-path: 'paper.md'
+          paper-path: paper.md
       - name: Upload
         uses: actions/upload-artifact@v4
         with:
