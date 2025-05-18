@@ -1,4 +1,4 @@
-(SSLFP.png)
+[(SSLFP.png)]
 
 # PyMossFit
 
