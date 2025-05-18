@@ -2,8 +2,8 @@ name: Draft PDF
 on:
   push:
     paths:
-      - paper/**
-      - .github/workflows/draft-pdf.yml
+      - 'paper/**'
+      - '.github/workflows/draft-pdf.yml'
             
 permissions:
   contents: write  # This allows the workflow to push changes
