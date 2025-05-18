@@ -14,7 +14,7 @@ authors:
 affiliations:
 - name: Departamento de Física, Facultad de Ingeniería, Universidad de Buenos Aires, Argentina
   index: 1
-- name: YPF Tecnología S. A., Buenos Aires, Argentina
+- name: YPF Tecnología S. A., Berisso, Argentina
   index: 2
 date: 17 May 2025
 bibliography: paper.bib
