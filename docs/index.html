@@ -102,18 +102,18 @@
     <!-- Live spectrum card -->
     <div class="hero-card reveal">
       <div class="card-head">
-        <span class="mono file">4452_SSKFP_M23.txt</span>
-        <span class="chip-live"><i></i><span data-i18n="hero.live">ajuste en vivo</span></span>
+        <span class="mono file">Iguazu01.txt</span>
+        <span class="chip-live"><i></i><span data-i18n="hero.live">datos reales · RT</span></span>
       </div>
       <canvas id="spectrum" width="640" height="420" role="img"
-        aria-label="Espectro Mössbauer de ejemplo con su ajuste y subespectros"></canvas>
+        aria-label="Espectro Mössbauer 57Fe a temperatura ambiente (muestra Iguazu01) con su ajuste y subespectros"></canvas>
       <div class="param-strip" id="paramStrip">
-        <div class="pchip"><span class="pk">δ</span><span class="pv" data-val="0.37">0.00</span><span class="pu">mm/s</span><span class="pl" data-i18n="p.is">corr. isomérico</span></div>
-        <div class="pchip"><span class="pk">ΔE<sub>Q</sub></span><span class="pv" data-val="-0.20">0.00</span><span class="pu">mm/s</span><span class="pl" data-i18n="p.qs">desdobl. cuadrup.</span></div>
-        <div class="pchip"><span class="pk">B<sub>hf</sub></span><span class="pv" data-val="51.8">0.0</span><span class="pu">T</span><span class="pl" data-i18n="p.bhf">campo hiperfino</span></div>
-        <div class="pchip"><span class="pk">Γ</span><span class="pv" data-val="0.27">0.00</span><span class="pu">mm/s</span><span class="pl" data-i18n="p.gamma">anchura</span></div>
-        <div class="pchip"><span class="pk">A</span><span class="pv" data-val="100" data-suffix="%">0</span><span class="pu">%</span><span class="pl" data-i18n="p.area">área relativa</span></div>
-        <div class="pchip"><span class="pk">χ²<sub>r</sub></span><span class="pv" data-val="1.03">0.00</span><span class="pu"></span><span class="pl" data-i18n="p.chi">bondad de ajuste</span></div>
+        <div class="pchip"><span class="pk">B<sub>hf</sub></span><span class="pv" data-val="49.03">0.0</span><span class="pu">T</span><span class="pl" data-i18n="p.bhfA">campo hip. (sitio A)</span></div>
+        <div class="pchip"><span class="pk">B<sub>hf</sub></span><span class="pv" data-val="43.97">0.0</span><span class="pu">T</span><span class="pl" data-i18n="p.bhfB">campo hip. (sitio B)</span></div>
+        <div class="pchip"><span class="pk">δ</span><span class="pv" data-val="0.30">0.00</span><span class="pu">mm/s</span><span class="pl" data-i18n="p.is">corr. isomérico (Fe³⁺)</span></div>
+        <div class="pchip"><span class="pk">ΔE<sub>Q</sub></span><span class="pv" data-val="0.56">0.00</span><span class="pu">mm/s</span><span class="pl" data-i18n="p.qs">desdobl. cuadrup. (Fe³⁺)</span></div>
+        <div class="pchip"><span class="pk">A</span><span class="pv" data-val="65">0</span><span class="pu">%</span><span class="pl" data-i18n="p.asex">área sextetos</span></div>
+        <div class="pchip"><span class="pk">RMS</span><span class="pv" data-val="0.24">0.00</span><span class="pu">%</span><span class="pl" data-i18n="p.rms">residuo del ajuste</span></div>
       </div>
     </div>
   </div>
@@ -235,12 +235,13 @@
           </tr>
         </thead>
         <tbody>
-          <tr><td data-i18n="par.row1">Sextete 1 (hematita)</td><td>0.37</td><td>—</td><td>−0.10</td><td>51.8</td><td>0.27</td><td>72.4</td></tr>
-          <tr><td data-i18n="par.row2">Sextete 2 (magnetita)</td><td>0.29</td><td>—</td><td>0.00</td><td>48.9</td><td>0.35</td><td>19.1</td></tr>
-          <tr><td data-i18n="par.row3">Doblete 1 (Fe³⁺)</td><td>0.35</td><td>0.68</td><td>—</td><td>—</td><td>0.30</td><td>8.5</td></tr>
+          <tr><td data-i18n="par.row1">Sextete A — magnetita (sitio tetra)</td><td>0.255</td><td>—</td><td>0.091</td><td>49.05</td><td>0.350</td><td>50.28</td></tr>
+          <tr><td data-i18n="par.row2">Sextete B — magnetita (sitio octa)</td><td>0.469</td><td>—</td><td>−0.430</td><td>43.97</td><td>0.350</td><td>14.74</td></tr>
+          <tr><td data-i18n="par.row3">Doblete 1 (Fe³⁺)</td><td>0.297</td><td>0.557</td><td>—</td><td>—</td><td>0.234</td><td>25.81</td></tr>
+          <tr><td data-i18n="par.row4">Doblete 2</td><td>0.351</td><td>2.232</td><td>—</td><td>—</td><td>0.350</td><td>9.17</td></tr>
         </tbody>
       </table>
-      <p class="fine" data-i18n="par.fine">Ejemplo ilustrativo. Los valores y sus errores se obtienen del ajuste real de cada espectro.</p>
+      <p class="fine" data-i18n="par.fine">Ajuste real de la muestra Iguazu01 (⁵⁷Fe, temperatura ambiente), exportado por PyMossFit. Los errores de cada parámetro se reportan en el CSV del ajuste.</p>
     </div>
   </div>
 </section>
