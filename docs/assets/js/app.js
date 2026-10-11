@@ -185,6 +185,25 @@
   function rnd(){ seed = (seed * 1103515245 + 12345) & 0x7fffffff; return seed / 0x7fffffff; }
   for (let i = 0; i < NPTS; i++) noise.push((rnd() - 0.5));
 
+  function modelTotal(v){ return comps.reduce((s, c) => s + c.f(v), 0); }
+
+  // autoscale: el eje Y se ajusta al rango real de transmisión (los picos son de 2-5%)
+  let yLo = 0.90, yHi = 1.0;
+  function computeYRange(){
+    let mn = 1, mx = 1;
+    for (let i = 0; i <= NPTS; i++){
+      const v = X0 + (X1 - X0) * i / NPTS;
+      const fit = 1 - modelTotal(v);
+      mn = Math.min(mn, fit);
+      mx = Math.max(mx, fit + (noise[i] || 0) * 0.012);
+      for (const c of comps) mn = Math.min(mn, 1 - c.f(v));
+    }
+    const span = Math.max(0.03, mx - mn);
+    const pad = span * 0.18;
+    yLo = mn - pad;
+    yHi = Math.min(1.0, mx + pad);
+  }
+
   function resize(){
     const cssW = canvas.clientWidth || 640;
     dpr = Math.min(2.5, window.devicePixelRatio || 1);
@@ -193,11 +212,12 @@
     canvas.height = Math.round(H * dpr);
     canvas.style.height = H + 'px';
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    computeYRange();
   }
 
-  const PAD = { l: 44, r: 14, t: 16, b: 34 };
+  const PAD = { l: 48, r: 14, t: 16, b: 34 };
   function mapX(v){ return PAD.l + (v - X0) / (X1 - X0) * (W - PAD.l - PAD.r); }
-  function mapY(t){ return PAD.t + (1 - t) * (H - PAD.t - PAD.b); } // t: 0..1 transmission
+  function mapY(t){ return PAD.t + (yHi - t) / (yHi - yLo) * (H - PAD.t - PAD.b); } // t: transmisión real (autoscale)
 
   function drawAxes(){
     ctx.clearRect(0, 0, W, H);
@@ -207,11 +227,22 @@
     ctx.fillStyle = '#6f7fa8';
     ctx.textAlign = 'right';
     ctx.textBaseline = 'middle';
-    for (let t = 0; t <= 1.0001; t += 0.25){
+    const span = yHi - yLo;
+    const dec = span < 0.25 ? 1 : 0;
+    for (let k = 0; k <= 4; k++){
+      const t = yLo + span * k / 4;
       const yy = mapY(t);
       ctx.beginPath(); ctx.moveTo(PAD.l, yy); ctx.lineTo(W - PAD.r, yy); ctx.stroke();
-      ctx.fillText((t * 100).toFixed(0) + '%', PAD.l - 8, yy);
+      ctx.fillText((t * 100).toFixed(dec) + '%', PAD.l - 8, yy);
     }
+    // etiqueta de autoscale
+    ctx.textAlign = 'right';
+    ctx.textBaseline = 'top';
+    ctx.fillStyle = '#5c6b93';
+    ctx.font = '9.5px "JetBrains Mono", monospace';
+    ctx.fillText('Y: autoscale', W - PAD.r, PAD.t + 3);
+    ctx.font = '11px "JetBrains Mono", monospace';
+    ctx.fillStyle = '#6f7fa8';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'top';
     for (let v = X0; v <= X1; v += 3){
@@ -273,7 +304,7 @@
     ctx.fillStyle = 'rgba(200,212,240,.55)';
     for (let i = 0; i <= NPTS; i++){
       const v = X0 + (X1 - X0) * i / NPTS;
-      const t = 1 - modelAt(v, 'total') + noise[i] * 0.012;
+      const t = 1 - modelAt(v, 'total') + (noise[i] || 0) * 0.012;
       const xx = mapX(v), yy = mapY(t);
       ctx.fillRect(xx - 1.1, yy - 1.1, 2.2, 2.2);
     }
