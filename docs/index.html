@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>PyMossFit · Ajuste de espectros Mössbauer en la nube</title>
+<meta name="description" content="PyMossFit es un software abierto para ajustar espectros Mössbauer en Google Colab: plegado por FFT, ajuste con lmfit, suavizado Savitzky–Golay e identificación de fases por KNN." />
+<meta name="author" content="Fabio D. Saccone" />
+<meta name="theme-color" content="#0b1020" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="PyMossFit · Ajuste de espectros Mössbauer en la nube" />
+<meta property="og:description" content="Jupyter/Colab + lmfit para el ajuste de espectros Mössbauer. Plegado FFT, Savitzky–Golay y KNN de fases." />
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b1020'/%3E%3Cpath d='M12 32h6M18 32l4-14 6 28 6-24 5 20 4-10h9' fill='none' stroke='%23ffb703' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<script>document.documentElement.classList.add('js');</script>
+<link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+
+<!-- ================= NAV ================= -->
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top">
+      <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="#0d1428"/>
+        <path d="M10 32h6M16 32l4-14 6 28 6-24 5 20 4-10h9" fill="none" stroke="#ffb703" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span class="brand-text">PyMoss<b>Fit</b></span>
+    </a>
+
+    <nav class="nav-links" aria-label="Secciones">
+      <a href="#features" data-i18n="nav.features">Qué hace</a>
+      <a href="#pipeline" data-i18n="nav.pipeline">Flujo</a>
+      <a href="#params" data-i18n="nav.params">Parámetros</a>
+      <a href="#start" data-i18n="nav.start">Empezar</a>
+      <a href="#cite" data-i18n="nav.cite">Citar</a>
+    </nav>
+
+    <div class="nav-actions">
+      <div class="lang" role="group" aria-label="Idioma">
+        <button class="lang-btn is-active" data-lang="es">ES</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+      </div>
+      <a class="btn btn-ghost nav-gh" href="https://github.com/fsacconeUBA/PyMossFit" target="_blank" rel="noopener">
+        <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38v-1.33c-2.23.48-2.7-1.07-2.7-1.07-.36-.93-.89-1.18-.89-1.18-.73-.5.05-.49.05-.49.81.06 1.23.83 1.23.83.72 1.23 1.88.87 2.34.67.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.6 7.6 0 0 1 4 0c1.53-1.03 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48v2.2c0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+        GitHub
+      </a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="grid-bg" aria-hidden="true"></div>
+  <div class="wrap hero-inner">
+    <div class="hero-copy reveal">
+      <div class="eyebrow">
+        <span class="dot"></span>
+        <span data-i18n="hero.eyebrow">Código abierto · Google Colab · lmfit</span>
+      </div>
+      <h1>
+        <span data-i18n="hero.h1a">Ajuste de espectros Mössbauer</span><br>
+        <span class="grad" data-i18n="hero.h1b">en la nube, sin instalar nada.</span>
+      </h1>
+      <p class="lead" data-i18n="hero.lead">
+        PyMossFit es un notebook de Python para plegar, normalizar y ajustar espectros
+        Mössbauer de transmisión y CEMS. Corre en Google Colab, comparte resultados entre
+        dispositivos y equipos, e identifica fases con KNN sobre una base de datos de
+        interacciones hiperfinas.
+      </p>
+
+      <div class="cta-row">
+        <a class="btn btn-primary colab-link"
+           data-colab-es="https://colab.research.google.com/github/fsacconeUBA/PyMossFit/blob/main/PyMossFit-V7.ipynb"
+           data-colab-en="https://colab.research.google.com/github/fsacconeUBA/PyMossFit/blob/main/PyMossFit-V7%20ENG.ipynb"
+           href="https://colab.research.google.com/github/fsacconeUBA/PyMossFit/blob/main/PyMossFit-V7.ipynb" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm3.5 6.4a1.3 1.3 0 1 1 0 2.6 1.3 1.3 0 0 1 0-2.6Zm-7 0a1.3 1.3 0 1 1 0 2.6 1.3 1.3 0 0 1 0-2.6ZM5.1 12a6.9 6.9 0 0 0 6.9 6.6 6.9 6.9 0 0 0 6.9-6.6c-2.3 1.3-4.6 1.9-6.9 1.9S7.4 13.3 5.1 12Z"/></svg>
+          <span data-i18n="hero.cta1">Abrir en Colab</span>
+        </a>
+        <a class="btn btn-outline" href="https://doi.org/10.5281/zenodo.15428763" target="_blank" rel="noopener">
+          <span data-i18n="hero.cta2">Descargar (Zenodo)</span>
+        </a>
+        <a class="btn btn-outline" href="#cite" data-i18n="hero.cta3">Cómo citar</a>
+      </div>
+
+      <ul class="badges">
+        <li>DOI <span class="mono">10.3390/spectroscj3040029</span></li>
+        <li data-i18n="hero.badge2">License-free · Python ≥ 3.10</li>
+        <li data-i18n="hero.badge3">ES · EN</li>
+      </ul>
+    </div>
+
+    <!-- Live spectrum card -->
+    <div class="hero-card reveal">
+      <div class="card-head">
+        <span class="mono file">Iguazu01.txt</span>
+        <span class="chip-live"><i></i><span data-i18n="hero.live">datos reales · RT</span></span>
+      </div>
+      <canvas id="spectrum" width="640" height="420" role="img"
+        aria-label="Espectro Mössbauer 57Fe a temperatura ambiente (muestra Iguazu01) con su ajuste y subespectros"></canvas>
+      <div class="param-strip" id="paramStrip">
+        <div class="pchip"><span class="pk">B<sub>hf</sub></span><span class="pv" data-val="49.03">0.0</span><span class="pu">T</span><span class="pl" data-i18n="p.bhfA">campo hip. (sitio A)</span></div>
+        <div class="pchip"><span class="pk">B<sub>hf</sub></span><span class="pv" data-val="43.97">0.0</span><span class="pu">T</span><span class="pl" data-i18n="p.bhfB">campo hip. (sitio B)</span></div>
+        <div class="pchip"><span class="pk">δ</span><span class="pv" data-val="0.30">0.00</span><span class="pu">mm/s</span><span class="pl" data-i18n="p.is">corr. isomérico (Fe³⁺)</span></div>
+        <div class="pchip"><span class="pk">ΔE<sub>Q</sub></span><span class="pv" data-val="0.56">0.00</span><span class="pu">mm/s</span><span class="pl" data-i18n="p.qs">desdobl. cuadrup. (Fe³⁺)</span></div>
+        <div class="pchip"><span class="pk">A</span><span class="pv" data-val="65">0</span><span class="pu">%</span><span class="pl" data-i18n="p.asex">área sextetos</span></div>
+        <div class="pchip"><span class="pk">RMS</span><span class="pv" data-val="0.24">0.00</span><span class="pu">%</span><span class="pl" data-i18n="p.rms">residuo del ajuste</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FEATURES ================= -->
+<section class="section" id="features">
+  <div class="wrap">
+    <header class="sec-head reveal">
+      <p class="kicker" data-i18n="feat.kicker">Qué hace</p>
+      <h2 data-i18n="feat.h2">Un solo entorno para todo el análisis Mössbauer.</h2>
+      <p class="sub" data-i18n="feat.sub">Plegado, ajuste e identificación de fases en un mismo notebook, reproducible y listo para discutir resultados con tu grupo.</p>
+    </header>
+
+    <div class="cards">
+      <article class="card reveal">
+        <div class="ico">〰</div>
+        <h3 data-i18n="feat.1t">Plegado por FFT</h3>
+        <p data-i18n="feat.1p">Plegado de datos crudos con la transformada discreta de Fourier (numpy.fft): se ubica el canal de plegado por el mínimo/máximo central del espectro, según Nyquist–Shannon.</p>
+      </article>
+      <article class="card reveal">
+        <div class="ico">Σ</div>
+        <h3 data-i18n="feat.2t">Ajuste con lmfit</h3>
+        <p data-i18n="feat.2p">Perfiles lorentzianos para singletes, dobletes y sextetes, más distribuciones de sextetes para entornos desordenados. Los sextetes incluyen el <b>quadrupole shift</b> (ΔE<sub>Q</sub>): el desplazamiento que asimetriza los pares de líneas. Mínimos cuadrados con cotas y errores (stderr).</p>
+      </article>
+      <article class="card reveal">
+        <div class="ico">≈</div>
+        <h3 data-i18n="feat.3t">Suavizado Savitzky–Golay</h3>
+        <p data-i18n="feat.3p">Opción de suavizado para espectros con poca estadística (típico en corridas de calibración), sin deformar la forma de línea.</p>
+      </article>
+      <article class="card reveal">
+        <div class="ico">◎</div>
+        <h3 data-i18n="feat.4t">Identificación de fases (KNN)</h3>
+        <p data-i18n="feat.4p">Compara los parámetros hiperfinos ajustados contra una base local de ~50 compuestos de Fe (⁵⁷Fe) con un clasificador k-Nearest Neighbors (scikit-learn).</p>
+      </article>
+      <article class="card reveal">
+        <div class="ico">⇄</div>
+        <h3 data-i18n="feat.5t">Transmisión y CEMS</h3>
+        <p data-i18n="feat.5p">Las funciones se restan del fondo en transmisión y se suman en medidas CEMS: el mismo modelo sirve para ambos modos experimentales.</p>
+      </article>
+      <article class="card reveal">
+        <div class="ico">⎘</div>
+        <h3 data-i18n="feat.6t">Informes y gráficos</h3>
+        <p data-i18n="feat.6p">Salidas CSV listas para publicar: <span class="mono">-plot.csv</span> (datos + subespectros + modelo) y <span class="mono">-report.csv</span> (δ, ΔE<sub>Q</sub>, B<sub>hf</sub>, Γ, área %), más el gráfico del ajuste y el residuo.</p>
+      </article>
+      <article class="card reveal">
+        <div class="ico">☁</div>
+        <h3 data-i18n="feat.7t">Colaborativo y multiplataforma</h3>
+        <p data-i18n="feat.7p">Diseñado para Google Colab: trabajás desde cualquier dispositivo y sistema operativo, y compartís el ajuste en vivo con colegas.</p>
+      </article>
+      <article class="card reveal">
+        <div class="ico">⌘</div>
+        <h3 data-i18n="feat.8t">Abierto y citable</h3>
+        <p data-i18n="feat.8p">Publicado con DOI en Zenodo y en Spectroscopy Journal (MDPI). Trae espectros de ejemplo (magnetita, hematita, hierro metálico) para probar en minutos.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PIPELINE ================= -->
+<section class="section section-alt" id="pipeline">
+  <div class="wrap">
+    <header class="sec-head reveal">
+      <p class="kicker" data-i18n="pipe.kicker">Flujo de trabajo</p>
+      <h2 data-i18n="pipe.h2">De datos crudos al informe, en cuatro pasos.</h2>
+    </header>
+
+    <ol class="steps">
+      <li class="reveal">
+        <span class="step-n">01</span>
+        <h3 data-i18n="pipe.1t">Datos crudos</h3>
+        <p data-i18n="pipe.1p">Cargás el archivo del espectrómetro (un canal, o dos columnas). Definís <span class="mono">Vmax</span> y canales para fijar la escala mm/s.</p>
+      </li>
+      <li class="reveal">
+        <span class="step-n">02</span>
+        <h3 data-i18n="pipe.2t">Plegado + normalización</h3>
+        <p data-i18n="pipe.2p">El plegado por FFT genera <span class="mono">calib.txt</span> y un <span class="mono">.csv</span> con columnas V (mm/s) y espectro plegado/normalizado.</p>
+      </li>
+      <li class="reveal">
+        <span class="step-n">03</span>
+        <h3 data-i18n="pipe.3t">Ajuste</h3>
+        <p data-i18n="pipe.3p">Declarás cuántos singletes, dobletes y sextetes (y distribuciones) usar, y los valores iniciales. lmfit resuelve y reporta cada parámetro.</p>
+      </li>
+      <li class="reveal">
+        <span class="step-n">04</span>
+        <h3 data-i18n="pipe.4t">Fases + informe</h3>
+        <p data-i18n="pipe.4p">KNN propone fases candidatas a partir de la base de referencia; se exportan los CSV de gráfico y de parámetros.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ================= PARAMS ================= -->
+<section class="section" id="params">
+  <div class="wrap params-wrap">
+    <div class="reveal">
+      <p class="kicker" data-i18n="par.kicker">Parámetros hiperfinos</p>
+      <h2 data-i18n="par.h2">Todo lo que el ajuste puede reportar.</h2>
+      <p class="sub" data-i18n="par.sub">Los resultados se escriben con sus incertidumbres y el área relativa de cada subespectro, calculada integrando con <span class="mono">scipy.integrate.trapz</span>. Cada sextete ajusta su propio <b>quadrupole shift</b> y lo reporta en <span class="mono">Quad Splitting (mm/s)</span>.</p>
+
+      <ul class="param-list">
+        <li><b>δ</b> <span data-i18n="par.is">corrimiento isomérico (IS) — estado de oxidación y entorno químico.</span></li>
+        <li><b>ΔE<sub>Q</sub></b> <span data-i18n="par.qs">desdoblamiento cuadrupolar (QS) en dobletes — simetría del entorno.</span></li>
+        <li><b>ΔE<sub>Q</sub>(S)</b> <span data-i18n="par.qshift">quadrupole shift del sextete — desplaza los pares de líneas y da la asimetría del sextete.</span></li>
+        <li><b>B<sub>hf</sub></b> <span data-i18n="par.bhf">campo hiperfino magnético (T).</span></li>
+        <li><b>Γ</b> <span data-i18n="par.gamma">ancho de línea lorentziano (mm/s).</span></li>
+        <li><b>A</b> <span data-i18n="par.area">área relativa de cada componente (%).</span></li>
+      </ul>
+    </div>
+
+    <div class="card panel reveal">
+      <h3 data-i18n="par.panel">Panel de resultados</h3>
+      <table class="res-table">
+        <colgroup><col class="c-name"><col><col><col><col><col><col></colgroup>
+        <thead>
+          <tr>
+            <th data-i18n="par.th1">Componente</th>
+            <th>δ</th><th>ΔE<sub>Q</sub></th><th>ΔE<sub>Q</sub>(S)</th><th>B<sub>hf</sub></th><th>Γ</th><th>A (%)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td data-i18n="par.row1">Sextete A — magnetita (sitio tetra)</td><td>0.255</td><td>—</td><td>0.091</td><td>49.05</td><td>0.350</td><td>50.28</td></tr>
+          <tr><td data-i18n="par.row2">Sextete B — magnetita (sitio octa)</td><td>0.469</td><td>—</td><td>−0.430</td><td>43.97</td><td>0.350</td><td>14.74</td></tr>
+          <tr><td data-i18n="par.row3">Doblete 1 (Fe³⁺)</td><td>0.297</td><td>0.557</td><td>—</td><td>—</td><td>0.234</td><td>25.81</td></tr>
+          <tr><td data-i18n="par.row4">Doblete 2</td><td>0.351</td><td>2.232</td><td>—</td><td>—</td><td>0.350</td><td>9.17</td></tr>
+        </tbody>
+      </table>
+      <p class="fine" data-i18n="par.fine">Ajuste real de la muestra Iguazu01 (⁵⁷Fe, temperatura ambiente), exportado por PyMossFit. Los errores de cada parámetro se reportan en el CSV del ajuste.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= START ================= -->
+<section class="section section-alt" id="start">
+  <div class="wrap">
+    <header class="sec-head reveal">
+      <p class="kicker" data-i18n="start.kicker">Empezar</p>
+      <h2 data-i18n="start.h2">Cinco minutos y ya estás ajustando.</h2>
+      <p class="sub" data-i18n="start.sub">Sin instalación local: abrí el notebook en Colab, montá tu Drive con los datos y corré las celdas en orden.</p>
+    </header>
+
+    <div class="start-grid">
+      <div class="code-card reveal">
+        <div class="code-head">
+          <span class="mono">Opción A · Google Colab</span>
+          <a class="btn btn-primary btn-sm colab-link"
+             data-colab-es="https://colab.research.google.com/github/fsacconeUBA/PyMossFit/blob/main/PyMossFit-V7.ipynb"
+             data-colab-en="https://colab.research.google.com/github/fsacconeUBA/PyMossFit/blob/main/PyMossFit-V7%20ENG.ipynb"
+             href="https://colab.research.google.com/github/fsacconeUBA/PyMossFit/blob/main/PyMossFit-V7.ipynb" target="_blank" rel="noopener" data-i18n="start.open">Abrir notebook</a>
+        </div>
+        <pre class="code"><code><span class="c"># 1) Abrí el notebook PyMossFit en Colab</span>
+<span class="c">#    (versión con quadrupole shift en sextetes)</span>
+<span class="c"># 2) Montá Google Drive con tus datos</span>
+from google.colab import drive
+drive.mount(<span class="s">'/content/drive'</span>)
+
+<span class="c"># 3) Fijá el archivo y el directorio</span>
+img = <span class="s">'/content/drive/MyDrive/Mossbauer/mi_espectro.txt'</span></code></pre>
+      </div>
+
+      <div class="code-card reveal">
+        <div class="code-head">
+          <span class="mono">Opción B · Local / Jupyter</span>
+          <button class="btn btn-ghost btn-sm copy-btn" data-copy="git clone https://github.com/fsacconeUBA/PyMossFit.git && cd PyMossFit && pip install lmfit" data-i18n="start.copy">Copiar</button>
+        </div>
+        <pre class="code"><code>git clone https://github.com/fsacconeUBA/PyMossFit.git
+cd PyMossFit
+pip install lmfit        <span class="c"># + numpy, scipy, pandas, matplotlib, scikit-learn</span>
+jupyter notebook PyMossFit-V7.ipynb</code></pre>
+      </div>
+    </div>
+
+    <div class="variants reveal">
+      <span class="vlabel" data-i18n="start.vlabel">Variantes de modelo:</span>
+      <a class="vcard colab-link"
+         data-colab-es="https://colab.research.google.com/github/fsacconeUBA/PyMossFit/blob/main/PyMossFit-V7.ipynb"
+         data-colab-en="https://colab.research.google.com/github/fsacconeUBA/PyMossFit/blob/main/PyMossFit-V7%20ENG.ipynb"
+         href="https://colab.research.google.com/github/fsacconeUBA/PyMossFit/blob/main/PyMossFit-V7.ipynb" target="_blank" rel="noopener">
+        <b data-i18n="start.var1">General · V7</b>
+        <span data-i18n="start.var1d">Singletes · dobletes · sextetes (con quadrupole shift)</span>
+      </a>
+      <a class="vcard" href="https://colab.research.google.com/github/fsacconeUBA/PyMossFit/blob/main/PyMossFit%202Q.ipynb" target="_blank" rel="noopener">
+        <b data-i18n="start.var2">2Q · 2 dobletes</b>
+        <span data-i18n="start.var2d">Modelo específico para dos dobletes cuadrupolares</span>
+      </a>
+    </div>
+
+    <p class="fine center reveal" data-i18n="start.fine">Requisitos: Python ≥ 3.10 · numpy · scipy · pandas · matplotlib · lmfit · scikit-learn.</p>
+  </div>
+</section>
+
+<!-- ================= CITE ================= -->
+<section class="section" id="cite">
+  <div class="wrap">
+    <header class="sec-head reveal">
+      <p class="kicker" data-i18n="cite.kicker">Citación</p>
+      <h2 data-i18n="cite.h2">Cómo citar PyMossFit</h2>
+      <p class="sub" data-i18n="cite.sub">Si PyMossFit te resultó útil, citá el artículo y/o el software. El DOI de Zenodo resuelve siempre a la última versión publicada.</p>
+    </header>
+
+    <div class="cite-grid">
+      <article class="cite-card reveal">
+        <span class="tag" data-i18n="cite.tag1">Artículo</span>
+        <h3>Spectroscopy Journal (MDPI), 2025</h3>
+        <p class="bib">
+          Saccone, F. D. (2025). <i>PyMossFit: A Google Colab Option for Mössbauer Spectra Fitting.</i>
+          Spectroscopy Journal, 3(4), 29.
+          <a href="https://doi.org/10.3390/spectroscj3040029" target="_blank" rel="noopener">https://doi.org/10.3390/spectroscj3040029</a>
+        </p>
+        <button class="btn btn-outline btn-sm copy-btn" data-copy-target="#bibtex-paper" data-i18n="cite.copy">Copiar BibTeX</button>
+      </article>
+
+      <article class="cite-card reveal">
+        <span class="tag" data-i18n="cite.tag2">Software</span>
+        <h3>Zenodo (última versión)</h3>
+        <p class="bib">
+          Saccone, F. D. <i>PyMossFit</i> [Software]. Zenodo (última versión).
+          <a href="https://doi.org/10.5281/zenodo.15428763" target="_blank" rel="noopener">https://doi.org/10.5281/zenodo.15428763</a>
+        </p>
+        <button class="btn btn-outline btn-sm copy-btn" data-copy-target="#bibtex-soft" data-i18n="cite.copy">Copiar BibTeX</button>
+      </article>
+    </div>
+
+    <pre class="code bibtex reveal" id="bibtex-paper"><code>@article{saccone2025pymossfit,
+  title   = {PyMossFit: A Google Colab Option for M{\"o}ssbauer Spectra Fitting},
+  author  = {Saccone, Fabio D.},
+  journal = {Spectroscopy Journal},
+  volume  = {3},
+  number  = {4},
+  pages   = {29},
+  year    = {2025},
+  doi     = {10.3390/spectroscj3040029}
+}</code></pre>
+
+    <pre class="code bibtex reveal" id="bibtex-soft"><code>@software{pymossfit,
+  title     = {PyMossFit: Jupyter Notebook for fitting of M{\"o}ssbauer spectra},
+  author    = {Saccone, Fabio D.},
+  year      = {2026},
+  publisher = {Zenodo},
+  doi       = {10.5281/zenodo.15428763},
+  url       = {https://doi.org/10.5281/zenodo.15428763},
+  note      = {DOI de concepto: resuelve a la ultima version}
+}</code></pre>
+  </div>
+</section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <div>
+      <div class="brand brand-foot">
+        <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
+          <rect width="64" height="64" rx="14" fill="#0d1428"/>
+          <path d="M10 32h6M16 32l4-14 6 28 6-24 5 20 4-10h9" fill="none" stroke="#ffb703" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="brand-text">PyMoss<b>Fit</b></span>
+      </div>
+      <p class="fine" data-i18n="foot.made">
+        Desarrollado por Fabio D. Saccone — Departamento de Física, Facultad de Ingeniería (UBA) · YPF Tecnología S.A. · CONICET.
+      </p>
+    </div>
+    <nav class="foot-links">
+      <a href="https://github.com/fsacconeUBA/PyMossFit" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://doi.org/10.5281/zenodo.15428763" target="_blank" rel="noopener">Zenodo</a>
+      <a href="https://doi.org/10.3390/spectroscj3040029" target="_blank" rel="noopener">Paper</a>
+      <a href="https://orcid.org/0000-0001-9921-6626" target="_blank" rel="noopener">ORCID</a>
+    </nav>
+  </div>
+  <div class="wrap fine copy">
+    © <span id="year"></span> PyMossFit · <span data-i18n="foot.copy">Artículo CC BY 4.0 · Ver licencia del software en su registro de Zenodo.</span>
+  </div>
+</footer>
+
+<script src="assets/js/app.js"></script>
+</body>
+</html>
